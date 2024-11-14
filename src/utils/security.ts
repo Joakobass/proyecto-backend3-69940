@@ -1,17 +1,15 @@
-import bcrypt from 'bcrypt';
-
+import bcryptjs from 'bcryptjs';
 import { dirname, join } from 'path';
-import { UserEntity } from '../entities/users.entity';
 
 export const createHash = (password: string): string => {
-	const salts = bcrypt.genSaltSync(10);
-	return bcrypt.hashSync(password, salts);
+	const salts = bcryptjs.genSaltSync(10);
+	return bcryptjs.hashSync(password, salts);
 };
 
 export const passwordValidation = (
 	hashedPassword: string,
 	password: string
-): boolean => bcrypt.compareSync(password, hashedPassword);
+): boolean => bcryptjs.compareSync(password, hashedPassword);
 
 export const __dirname = dirname(
 	dirname(join(process.cwd(), 'src', 'utils', 'security.ts'))
