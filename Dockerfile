@@ -42,6 +42,3 @@ CMD ["npm", "start"]
 
 # Descargar de manera publica la imagen
 # docker pull <nombre_repositorio>:<tag>
-
-# Ejemplo 
-# docker pull adoption:1.0.0
